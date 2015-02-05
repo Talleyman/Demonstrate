@@ -27,9 +27,12 @@ CleanData<-function(data){
 MakeAUCPlot<-function(data, AUC.plot.title="My AUC Plot"){
   pdf(file=AUC.plot.title)
   lineplot.CI(data$Herit, data$AUC, data$Pop.Structure, type="b", 
-              main=AUC.plot.title)
+              main=AUC.plot.title, xlab="Heritability Coefficient", ylab="Mean AUC")
   dev.off()
 }
 MakeMAEPlot<-function(data, MAE.plot.title="My MAE Plot"){
-  pdf(file)
+  pdf(file=MAE.plot.title)
+  lineplot.CI(data$Herit, data$MAE, data$Pop.Structure, type="b", 
+  main=MAE.plot.title, xlab="Heritability Coefficient", ylab="Mean MAE")
+  dev.off()
 }
