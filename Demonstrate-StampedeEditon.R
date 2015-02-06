@@ -1,6 +1,6 @@
 #Demonstrate-Stampede Edition (Feb. 2, 2015)
 #Original program by: Dustin Landers
-#Stampede Edition by: Stephen Talley and Marco Martinez
+#Stampede Edition by: Stephen Talley and Marco Martinez (here)
 
 require(getopt)
 require(sciplot)
