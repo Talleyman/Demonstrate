@@ -36,3 +36,14 @@ MakeMAEPlot<-function(data, MAE.plot.title="My MAE Plot"){
   main=MAE.plot.title, xlab="Heritability Coefficient", ylab="Mean MAE")
   dev.off()
 }
+
+args<-commandArgs(TRUE)
+options <- matrix(c("dir","dir",1,"character"
+                    "AUC-plot-title","a",2,"character",
+                    "MAE-plot-title","m",2,"character",
+                    "herit-string1","H",0,"character",
+                    "herit-values1","H",0,"character",
+                    "struct-strings1","s",0,"character",
+                    "struct-values1","o",0,"character"),
+                  ncol=4,byrow=TRUE)
+all.opts<-getopt(options,args)
