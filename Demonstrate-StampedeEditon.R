@@ -12,16 +12,10 @@ readFiles <- function(dir) {
   return(listOfFiles)
 }
 
-CleanData<-function(data){
-  names<-list("AUC","MAE","H","H2")
-  for (file in data){
-    for (i in names(file)){
-      if ([[i]] not in names){
-        file[[i]]<-NULL
-      }
-    }
-  }
-  return(data)
+CleanData<-function(data, column1, column2){
+  names<-c(column1,column2)
+  newData<-data[names]
+  return(newData)
 }
 
 MakeAUCPlot<-function(data, AUC.plot.title="My AUC Plot"){
