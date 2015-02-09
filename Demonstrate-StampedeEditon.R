@@ -12,8 +12,8 @@ readFiles <- function(dir) {
   return(listOfFiles)
 }
 
-CleanData<-function(data, column1, column2){
-  names<-c(column1,column2)
+CleanData<-function(data, col1, col2,col3=NULL,col4=NULL){
+  names<-c(col1,col2,col3,col4)
   newData<-data[names]
   return(newData)
 }
