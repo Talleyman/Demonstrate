@@ -31,8 +31,9 @@ MakeMAEPlot<-function(Her, Pop=NULL, data, MAE.plot.title="My MAE Plot"){
   dev.off()
 }
 #Main function
+#First, get command line arguments
 args<-commandArgs(TRUE)
-options <- matrix(c("dir","dir",1,"character"
+options <- matrix(c("dir","d",1,"character"
                     "AUC-plot-title","a",2,"character",
                     "MAE-plot-title","m",2,"character",
                     "herit-string1","H",0,"character",
@@ -41,7 +42,10 @@ options <- matrix(c("dir","dir",1,"character"
                     "struct-values1","o",0,"character"),
                   ncol=4,byrow=TRUE)
 all.opts<-getopt(options,args)
-
+possibles<-list("one","two","three","four","five","six","seven")
+for (i in 1:length(all.opts)){
+  assign(possibles[[i]],all.opts[i])
+}
 mydata<-readFiles(dir)
 #Add in columns for heritability and population structure to dataset
 mydata$Herit<-NA
