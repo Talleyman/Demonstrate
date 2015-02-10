@@ -48,16 +48,24 @@ for (i in 1:length(all.opts)){
 }
 mydata<-readFiles(dir)
 #Add in columns for heritability and population structure to dataset
-mydata$Herit<-NA
-for (i in 1:length(herit.strings)) {
-  newData$Herit <- ifelse(sapply(mydata$Name,function(x) grepl(herit.strings[[i]],x)),
-                          herit.values[[i]],newData$Herit)
+for (i in length(mydata)){
+  mydata[[i]]$Herit<-NA
+  for (j in 1:length(herit.strings)) {
+    myData$Herit <- ifelse(sapply(mydata[[i]]$Name,function(x) grepl(herit.strings[[j]],x)),
+                           herit.values[[j]],mydata[[i]]$Herit)
+  }
 }
-mydata$Pop.Struct<-NA
-for (i in 1:length(struct.strings)) {
-  newData$Structure <- ifelse(sapply(mydata$Name,function(x) grepl(struct.strings[[i]],x)),
-                              struct.values[[i]],newData$Structure)
+
+
+for (i in length(mydata)){
+  mydata[[i]]$Pop.Struct<-NA
+  for (j in 1:length(struct.strings)) {
+    myData[[i]]$Structure <- ifelse(sapply(mydata[[i]]$Name,function(x) grepl(struct.strings[[j]],x)),
+                               struct.values[[j]],mydata[[i]]$Structure)
+  }
 }
+
+
 Filtr.list<-list()
 #For loop to append filtered data to new list
 for (i in 1:length(dir())){
