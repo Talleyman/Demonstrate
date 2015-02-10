@@ -57,7 +57,7 @@ for (i in 1:length(struct.strings)) {
 Filtr.list<-list()
 #For loop to append filtered data to new list
 for (i in 1:length(dir())){
-  Filtr.list[[length(Filtr.list)+1]]<-CleanData(data[[i]],"AUC","MAE","Herit","Pop.Structure")
+  Filtr.list[[length(Filtr.list)+1]]<-CleanData(mydata[[i]],"AUC","MAE","Herit","Pop.Structure")
 }
 mydata<-NULL #Clean out the original data set to save some memory
 MakeAUCPlot(Herit.List, Pop.Struct, Filtr.list, AUC.plot.title)
