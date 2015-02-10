@@ -55,8 +55,6 @@ for (i in length(mydata)){
                            herit.values[[j]],mydata[[i]]$Herit)
   }
 }
-
-
 for (i in length(mydata)){
   mydata[[i]]$Pop.Struct<-NA
   for (j in 1:length(struct.strings)) {
@@ -64,8 +62,6 @@ for (i in length(mydata)){
                                struct.values[[j]],mydata[[i]]$Structure)
   }
 }
-
-
 Filtr.list<-list()
 #For loop to append filtered data to new list
 for (i in 1:length(dir())){
