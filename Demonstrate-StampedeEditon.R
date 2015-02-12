@@ -18,13 +18,13 @@ CleanData<-function(data, col1, col2,col3=NULL,col4=NULL,col5=NULL){
   return(newData)
 }
 
-MakeAUCPlot<-function(Her, Pop=NULL, data, AUC.plot.title="My AUC Plot"){
+MakeAUCPlot<-function(Her, Pop=NULL, data, AUC.plot.title){
   pdf(file=AUC.plot.title)
   lineplot.CI(Herit, data$AUC, Pop, type="b", 
               main=AUC.plot.title, xlab="Heritability Coefficient", ylab="Mean AUC")
   dev.off()
 }
-MakeMAEPlot<-function(Her, Pop=NULL, data, MAE.plot.title="My MAE Plot"){
+MakeMAEPlot<-function(Her, Pop=NULL, data, MAE.plot.title){
   pdf(file=MAE.plot.title)
   lineplot.CI(Her, data$MAE, Pop, type="b", 
   main=MAE.plot.title, xlab="Heritability Coefficient", ylab="Mean MAE")
@@ -37,12 +37,14 @@ options <- matrix(c("dir","d",1,"character"
                     "AUC-plot-title","a",2,"character",
                     "MAE-plot-title","m",2,"character",
                     "herit-string1","H",0,"character",
-                    "herit-values1","H",0,"character",
+                    "herit-values1","V",0,"character",
                     "struct-strings1","s",0,"character",
                     "struct-values1","o",0,"character"),
                   ncol=4,byrow=TRUE)
 all.opts<-getopt(options,args)
-possibles<-list("one","two","three","four","five","six","seven")
+if ( is.null(all.opts$AUC.plot.title ) ){ all.opts$AUC.plot.title = "My AUC Plot" }
+if ( is.null(all.opts$MAE.plot.title ) ){ all.opts$MAE.plot.title = "My MAE plot" }
+
 for (i in 1:length(all.opts)){
   assign(possibles[[i]],all.opts[i])
 }
