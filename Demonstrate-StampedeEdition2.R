@@ -27,7 +27,7 @@ MakeAUCPlot<-function(Her, Pop=NULL, data, AUC.plot.title){
 MakeMAEPlot<-function(Her, Pop=NULL, data, MAE.plot.title){
   pdf(file=MAE.plot.title)
   lineplot.CI(Her, data$MAE, Pop, type="b", 
-  main=MAE.plot.title, xlab="Heritability Coefficient", ylab="Mean MAE")
+              main=MAE.plot.title, xlab="Heritability Coefficient", ylab="Mean MAE")
   dev.off()
 }
 #Main function
@@ -50,7 +50,17 @@ for (i in 1:length(all.opts)){
 }
 mydata<-readFiles(dir)
 #Add in columns for heritability and population structure to dataset
-for (i in length(mydata)){
+AddHerit<-function(data){
+  data$Herit<-NA
+  for (j in 1:length(herit.strings)) {
+    myData$Herit <- ifelse(sapply(mydata[[i]]$Names,function(x) grepl(herit.strings[[j]],x)),
+                           herit.values[[j]],mydata[[i]]$Herit)
+  }
+}
+AddStruct<-function(data){
+  data$Struct<-NA
+  for (j in 1:length())
+}
   mydata[[i]]$Herit<-NA
   for (j in 1:length(herit.strings)) {
     myData$Herit <- ifelse(sapply(mydata[[i]]$Names,function(x) grepl(herit.strings[[j]],x)),
@@ -61,7 +71,7 @@ for (i in length(mydata)){
   mydata[[i]]$Pop.Struct<-NA
   for (j in 1:length(struct.strings)) {
     myData[[i]]$Structure <- ifelse(sapply(mydata[[i]]$Names,function(x) grepl(struct.strings[[j]],x)),
-                               struct.values[[j]],mydata[[i]]$Structure)
+                                    struct.values[[j]],mydata[[i]]$Structure)
   }
 }
 Filtr.list<-list()
