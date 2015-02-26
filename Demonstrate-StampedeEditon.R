@@ -12,12 +12,6 @@ readFiles <- function(dir) {
   return(listOfFiles)
 }
 
-CleanData<-function(data, col1, col2,col3=NULL,col4=NULL,col5=NULL){
-  names<-c(col1,col2,col3,col4,col5)
-  newData<-data[names]
-  return(newData)
-}
-
 MakeAUCPlot<-function(Her, Pop=NULL, data, AUC.plot.title){
   pdf(file=AUC.plot.title)
   lineplot.CI(Herit, data$AUC, Pop, type="b", 
