@@ -91,4 +91,7 @@ for (i in 1:length(dir())){
 mydata<-NULL #Remove original data to save space
 MakeAUCPlot(Herit.List, Pop.Struct, Filtr.list, AUC.plot.title)
 MakeMAEPlot(Herit.List, Pop.Struct, Filtr.list, MAE.plot.title)
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
