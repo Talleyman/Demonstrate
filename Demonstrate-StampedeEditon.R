@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript
 #Demonstrate-Stampede Edition (Feb. 2, 2015)
 #Original program by: Dustin Landers
 #Stampede Edition by: Stephen Talley and Marco Martinez
@@ -11,15 +12,18 @@ args<-commandArgs(TRUE)
 options <- matrix(c("dir","d",1,"character"
                     "AUC-plot-title","a",2,"character",
                     "MAE-plot-title","m",2,"character",
-                    "herit-string1","H",0,"character",
-                    "herit-values1","V",0,"character",
-                    "struct-strings1","s",0,"character",
-                    "struct-values1","o",0,"character"),
+                    "herit.string1","H",1,"character",
+                    "herit.string2","h", 1,"character",
+                    "herit.string3","r",1,"character"
+                    "herit.value1","V",1,"double",
+                    "herit.value2","l",1,"double",
+                    "herit.value3","u",1,"double",
+                    "struct.string1","S",0,"character",
+                    "struct.string2","s",0,"character",
+                    "struct.value1","O",0,"logical",
+                    "struct.value2","o",0,"logical"),
                   ncol=4,byrow=TRUE)
 all.opts<-getopt(options,args)
-for (i in 1:length(all.opts)){
-  assign(possibles[[i]],all.opts[i])
-}
 Demonstrate <- function(dir, AUC.plot.title="Mean AUC By Population Structure and Heritability", MAE.plot.title="Mean MAE By Population Structure and Heritability",
                         herit.strings=list("_03_","_04_","_06_") ,herit.values=list(0.3,0.4,0.6),struct.strings=NULL,struct.values=NULL) {
   
@@ -59,3 +63,8 @@ Demonstrate <- function(dir, AUC.plot.title="Mean AUC By Population Structure an
   newData<-CreateLabels(myData)
   return(newData)
 }
+Demonstrate(dir=all.opts$dir, all.opts$AUC-plot-title, all.opts$MAE-plot-title, 
+            herit.strings=list(all.opts$herit.string1,all.opts$herit.string2,all.opts$herit.string3), 
+            herit.values=list(all.opts$herit.value1,all.opts$herit.value2,all.opts$herit.value3),
+            struct.strings=list(all.opts$struct.string1,all.opts$struct.string2),
+            struct.values=list(all.opts$struct.value1,all.opts$struct.value2))
