@@ -9,7 +9,7 @@ require(sciplot)
 #Main function
 #First, get command line arguments
 args<-commandArgs(TRUE)
-options <- matrix(c("dir","d",1,"character"
+options <- matrix(c("dir","d",1,"character",
                     "AUC-plot-title","a",2,"character",
                     "MAE-plot-title","m",2,"character",
                     "herit.string1","H",1,"character",
