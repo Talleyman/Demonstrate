@@ -14,7 +14,7 @@ options <- matrix(c("dir","d",1,"character"
                     "MAE-plot-title","m",2,"character",
                     "herit.string1","H",1,"character",
                     "herit.string2","h", 1,"character",
-                    "herit.string3","r",1,"character"
+                    "herit.string3","r",1,"character",
                     "herit.value1","V",1,"double",
                     "herit.value2","l",1,"double",
                     "herit.value3","u",1,"double",
