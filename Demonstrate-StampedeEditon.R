@@ -25,7 +25,7 @@ options <- matrix(c("dir","d",1,"character",
                   ncol=4,byrow=TRUE)
 all.opts<-getopt(options,args)
 Demonstrate <- function(dir, AUC.plot.title="Mean AUC By Population Structure and Heritability", MAE.plot.title="Mean MAE By Population Structure and Heritability",
-                        herit.strings=list("_03_","_04_","_06_") ,herit.values=list(0.3,0.4,0.6),struct.strings=NULL,struct.values=NULL) {
+                        herit.strings=list("_03_","_04_","_06_") ,herit.values=list(0.3,0.4,0.6),struct.strings,struct.values) {
   
   readFiles <- function(dir) {
     setwd(dir)
